@@ -1,0 +1,75 @@
+{
+	"Valores":{
+		"Ambiental":12.0,
+		"Social":10.0
+	},
+
+    "Ambiental": {
+       "Janeiro": {
+          "ano": 2024,
+          "valor": 1.1
+       },
+       "Fevereiro": {
+          "ano": 2024,
+          "valor": 1.2
+       },
+       "Março": {
+          "ano": 2024,
+          "valor": 1.3
+       },
+       "Abril": {
+          "ano": 2024,
+          "valor": 1.4
+       },
+       "Maio": {
+          "ano": 2024,
+          "valor": 1.3
+       },
+       "Junho": {
+          "ano": 2024,
+          "valor": 1.2
+       },
+       "Julho": {
+          "ano": 2024,
+          "valor": 1.1
+       },
+       "Agosto": {
+          "ano": 2024,
+          "valor": 1.0
+       }
+    },
+    "Social": {
+       "Janeiro": {
+          "ano": 2024,
+          "valor": 0.1
+       },
+       "Fevereiro": {
+          "ano": 2024,
+          "valor": 0.2
+       },
+       "Março": {
+          "ano": 2024,
+          "valor": 0.3
+       },
+       "Abril": {
+          "ano": 2024,
+          "valor": 0.4
+       },
+       "Maio": {
+          "ano": 2024,
+          "valor": 0.5
+       },
+       "Junho": {
+          "ano": 2024,
+          "valor": 0.6
+       },
+       "Julho": {
+          "ano": 2024,
+          "valor": 0.7
+       },
+       "Agosto": {
+          "ano": 2024,
+          "valor": 0.8
+       }
+    }
+}

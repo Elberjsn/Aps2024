@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+	integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+	crossorigin="anonymous" type="text/javascript"></script>
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+	integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+	crossorigin="anonymous" type="text/javascript"></script>
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+	crossorigin="anonymous" type="text/javascript"></script>
+	
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+	integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"
+	type="text/javascript"></script>
+	
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<title>Aps 2024</title>
+
+<script type="text/javascript" src="resources/static/js/scripts.js"></script>
+
+<style type="text/css">
+.linetable:hover {
+	cursor: pointer;
+	box-shadow: 0px 5px 10px 1px black;
+	z-index: 10;
+}
+</style>
+</head>
+<body>
+	<nav class="navbar bg-body-tertiary">
+		<div class="container-fluid">
+			<span class="navbar-text"> Projeto Aps 2024 Unip
+				(Desenvolvimento de sistema para uso no ESG) </span>
+				
+			<span class="text m-2">Objetivo Ambiental a ser Reduzido :
+				<input type="text" maxlength="3" id="inpMetaAmb" class="form-control" value="20%" disabled="disabled" style="width: 60px">
+			</span>
+			
+			<span class="text m-2">Objetivo Social a ser Investido:
+			<input type="text" maxlength="3" class="form-control" id="inpMetasoc" value="10%" disabled="disabled" style="width: 60px">
+			</span>
+
+		</div>
+	</nav>
+
+	<div class="row  m-2">
+		<div class="alert alert-danger alert-dismissible fade show m-2 col-5"
+			id="errorPrincipal" role="alert" style="display: none">
+			<strong id="errormsg">Erro ao Remover ! </strong> Verifique os dados e tante novamente.
+
+		</div>
+		<div class="col-3 ms-4 ">
+			<button type="button" class="btn btn-info" id="btnAlterarMetas" onclick="alterMedias()">Alterar Metas</button>
+		</div>
+		
+		<div class="col-12 justify-content-center">
+			<div class="row m-3">
+				<span class="text m-2">Redução de Agua: <strong
+					id="objAmbiental"> 20%</strong>% Em <strong id="objMesAmbiental">
+				</strong> Meses.
+				</span> <span class="text m-2">Investimento Social: <strong
+					id="objSocial">10%</strong>% Em <strong id="objMesSocial">
+				</strong> Meses.
+				</span> <span class="text m-2">Selecione quaisquer das opçoes
+					abaixo:</span>
+				<div class="col-12 text-center">
+					<div class="d-flex" role="search">
+
+						<select class="form-select  mx-2" name="buscaMeta" id="buscaMeta">
+							<option value="">Busca Por Meta</option>
+							<option value="Ambiental">Ambiental</option>
+							<option value="Social">Social</option>
+						</select> <select class="form-select  mx-2" name="buscaMes" id="buscaMes">
+							<option value="">Busca Por Mes</option>
+							<option value="01">Janeiro</option>
+							<option value="02">Fevereiro</option>
+							<option value="03">Março</option>
+							<option value="04">Abril</option>
+							<option value="05">Maio</option>
+							<option value="06">Julho</option>
+							<option value="07">Junho</option>
+							<option value="08">Agosto</option>
+							<option value="09">Setembro</option>
+							<option value="10">Outubro</option>
+							<option value="11">Novembro</option>
+							<option value="12">Dezembro</option>
+						</select>
+						<button class="btn btn-outline-primary mx-1" id="btnBusca">
+							<i class="bi bi-search"></i>
+						</button>
+						<button class="btn btn-outline-secondary mx-1" id="btnLimparBusca">
+							<i class="bi bi-x-circle"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-10 text-center">
+			<button type="button" class="btn btn-success" id="modalAddBtn">Adicionar
+				Valor</button>
+			<button type="button" class="btn btn-primary my-3" id="btnTrocarTela">Ver Grafico</button>
+		</div>
+	</div>
+
+	<div class="row text-center justify-content-md-center m-2">
+
+		<div class="col-12" id="divTable">
+			<table class="table table-striped border">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Meta</th>
+						<th scope="col">Data</th>
+						<th scope="col">Valor(%)</th>
+						<th scope="col">Opcao</th>
+					</tr>
+				</thead>
+				<tbody id="IdBodyTable">
+				
+					<!-- <tr class="linetable" id="tr-">
+						<th scope="row"></th>
+						<td name="meta"></td>
+						<td name="data"></td>
+						<td name="value"></td>
+						<td>
+							<button class="btn" onclick="clickBtnDelete(this)" value="-">
+								<i class="bi bi-trash3"></i>
+							</button>
+							<button class="btn" onclick="clickBtnAlter(this)" value="-">
+								<i class="bi bi-pencil-square"></i>
+							</button>
+						</td>
+					</tr> -->
+					
+				</tbody>
+			</table>
+		</div>
+	
+		<div class="col-12" id="divGrafico" style="display: none">
+			<img class="img" id="img1" alt="Grafico1" src="resources/dynamic/ambiental.jpeg"><br>
+			<img class="img" id="img2" alt="Grafico2" src="resources/dynamic/social.jpeg">
+		</div>
+	</div>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="modalAdd" tabindex="-1"
+		aria-labelledby="modalAddLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="modalAddLabel"></h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close" id="closebtn"></button>
+				</div>
+				<div class="alert alert-danger alert-dismissible fade show m-2"
+					id="errorModal" role="alert" style="display: none">
+					<strong>Erro ao Inserir ! </strong> Verifique os dados e tante
+					novamente.
+
+				</div>
+				<form id="form" action="">
+					<div class="modal-body">
+						<div>
+							<label class="form-label">Selecione a Meta: </label>
+
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" value="Ambiental" type="radio"
+									name="meta" id="radioAmbiental" required> <label
+									class="form-check-label" for="radioAmbiental">
+									Ambiental </label>
+							</div>
+
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" value="Social" type="radio"
+									name="meta" id="radioSocial" required> <label
+									class="form-check-label" for="radioSocial"> Social </label>
+							</div>
+						</div>
+
+						<select class="form-select mb-3" name="mes" id="mes" required>
+							<option selected disabled value="">Selecione o Mês</option>
+							<option value="01">Janeiro</option>
+							<option value="02">Fevereiro</option>
+							<option value="03">Março</option>
+							<option value="04">Abril</option>
+							<option value="05">Maio</option>
+							<option value="06">Julho</option>
+							<option value="07">Junho</option>
+							<option value="08">Agosto</option>
+							<option value="09">Setembro</option>
+							<option value="10">Outubro</option>
+							<option value="11">Novembro</option>
+							<option value="12">Dezembro</option>
+						</select>
+
+						<div class="input-group mb-3">
+							<input type="number" class="form-control" id="value"
+								placeholder="1,99" name="valor" required
+								aria-describedby="basic-addon1" step="0.01" min="0">
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal" id="modelClosebtn">Close</button>
+
+						<button type="button" class="btn btn-secondary" id="btnAdicionar">Adicionar
+						</button>
+						<button type="button" class="btn btn-secondary" id="btnAlterar"
+							style="display: none">Alterar</button>
+
+						<button type="reset" class="btn btn-primary">Limpar</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
